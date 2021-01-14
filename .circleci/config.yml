@@ -8,7 +8,9 @@ workflows:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           repo: '${MY_APP_PREFIX}'
-          region: AWS_REGION
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           tag: '${CIRCLE_SHA1}'
       - aws-ecs/deploy-service-update:
           requires:
